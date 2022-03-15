@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    /* font-family: "Roboto", "Arial", sans-serif;    */
+}
+
+a {
+    text-decoration: none;
+    width: auto;
+    color: black;
+}

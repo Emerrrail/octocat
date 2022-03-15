@@ -1,0 +1,31 @@
+.repoItem {
+    padding: 8%;
+    height: 15vh;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px -5px rgba(178, 178, 178, 0.45);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.repoItem__repoTitle {
+    margin-bottom: 12px;
+}
+
+.repoItem__bottom {
+    display: flex;
+}
+
+.repoItem__stargazers_container, .repoItem__forks_container {
+    display: flex;
+    align-items: center;
+}
+
+.repoItem__stargazers_container {
+    margin-right: 55%;
+}
+
+.repoItem__icon {
+    margin-right: 4px;
+}

@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getReposRequest } from '../store/actions/index';
+import './RepoList.css';
+import React from 'react'
 
-function RepoList() {
+import RepoItem from './RepoItem';
 
-    const { username } = useParams();
+function RepoList({ repoList, username }) {
 
-    const dispatch = useDispatch();
+    console.log(repoList)
 
-    useEffect(() => {
-
-        dispatch(getReposRequest(username));
-
-    }, [dispatch, username])
+    const renderRepoItems = repoList.map((item, index) => {
+        return <RepoItem
+            key={index}
+            username={username}
+            repoTitle={item.name}
+            description={item.description}
+            stargazers={item.stargazers_count}
+            forks={item.forks_count}
+        />
+    })
 
     return (
-        <div>username</div>
+        <div className='repoList'>
+            {renderRepoItems}
+        </div>
     )
 }
 
-export default RepoList
+
+export default RepoList;

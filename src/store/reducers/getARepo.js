@@ -1,32 +1,32 @@
-import { GET_REPOS_REQUEST, GET_REPOS_SUCCESS, GET_REPOS_ERROR } from "../actions";
+import { GET_A_REPO_REQUEST, GET_A_REPO_SUCCESS, GET_A_REPO_ERROR } from "../actions";
 
 const initialState = {
     loading: false,
-    repoList: [],
+    repoDetail: {},
     error: null
 }
 
-export const getRepos = (state = initialState, action) => {
+export const getARepo = (state = initialState, action) => {
     switch (action.type) {
-        case GET_REPOS_REQUEST:
+        case GET_A_REPO_REQUEST:
             return {
                 ...state,
                 loading: true,
-                repoList: [],
+                repoDetail: {},
                 error: null
             }
-        case GET_REPOS_SUCCESS:
+        case GET_A_REPO_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                repoList: action.payload.repoList,
+                repoDetail: action.payload.repoDetail,
                 error: null
             }
-        case GET_REPOS_ERROR:
+        case GET_A_REPO_ERROR:
             return {
                 ...state,
                 loading: false,
-                repoList: [],
+                repoDetail: {},
                 error: action.payload.error
             }
         default:

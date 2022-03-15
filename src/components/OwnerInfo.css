@@ -1,0 +1,17 @@
+.ownerInfo {
+    width: 35vh;
+    height: 100%;
+    position: fixed;
+    top: 60px;
+    box-shadow: 4px 16px 20px -5px rgba(178, 178, 178, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ownerInfo__avatar {
+    width: 80%;
+    margin: 24px;
+    position: relative;
+    border-radius: 50%;
+}

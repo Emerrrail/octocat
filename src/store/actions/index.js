@@ -13,7 +13,7 @@ export const GET_REPOS_SUCCESS = "GET_REPOS_SUCCESS";
 
 export const getReposSuccess = (payload) => {
     return {
-        type: GET_REPOS_SUCCESS,
+        type: GET_A_REPO_SUCCESS,
         payload
     }
 }
@@ -22,7 +22,7 @@ export const GET_REPOS_ERROR = "GET_REPOS_ERROR";
 
 export const getReposError = (payload) => {
     return {
-        type: GET_REPOS_ERROR,
+        type: GET_A_REPO_ERROR,
         payload
     }
 }
@@ -35,5 +35,37 @@ export const loadMoreReposRequest = (username) => {
         payload: {
             username: username
         }
+    }
+}
+
+
+
+export const GET_A_REPO_REQUEST = "GET_A_REPO_REQUEST";
+
+export const getARepoRequest = (owner, repo) => {
+    return {
+        type: GET_A_REPO_REQUEST,
+        payload: {
+            owner: owner,
+            repo: repo
+        }
+    }
+}
+
+export const GET_A_REPO_SUCCESS = "GET_A_REPO_SUCCESS";
+
+export const getARepoSuccess = (payload) => {
+    return {
+        type: GET_A_REPO_SUCCESS,
+        payload
+    }
+}
+
+export const GET_A_REPO_ERROR = "GET_A_REPO_ERROR";
+
+export const getARepoError = (payload) => {
+    return {
+        type: GET_A_REPO_ERROR,
+        payload
     }
 }
