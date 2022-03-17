@@ -1,3 +1,44 @@
 .repoPage {
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.repoPage__content {
+    width: 90%;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.repoPage__full_name {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.repoPage__icon_container {
+    display: flex;
+    align-items: center;
+}
+
+.repoPage__icon {
+    margin-right: 6px;
+}
+
+.repoPage__btn {
+    padding: 0 24px;
+    height: 40px;
+    color: var(--theme-blue-color);
+    background-color: white;
+    border: 1px solid var(--theme-blue-color);
+    border-radius: 20px;
+    transition: all .2s ease-in;
+}
+
+.repoPage__btn:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--theme-blue-color);
+    transition: all .2s ease-in;
 }

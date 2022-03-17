@@ -1,0 +1,12 @@
+.placeholder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.placeholder__item {
+    padding: 8%;
+    height: 15vh;
+    border: 2px solid #f4f4f4;
+    border-radius: 16px;
+}

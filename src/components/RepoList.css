@@ -1,6 +1,9 @@
 .repoList {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 2vh 12vh 0;
-    gap: 10% 5%
+    gap: 25px;
 }
+
+/* .repoList__bottom_logo {
+    width: 40px;
+} */

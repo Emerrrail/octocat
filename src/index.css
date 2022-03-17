@@ -1,10 +1,22 @@
 * {
     margin: 0;
-    /* font-family: "Roboto", "Arial", sans-serif;    */
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
 }
 
 a {
     text-decoration: none;
     width: auto;
-    color: black;
+    color: var(--text-color-primary);
+}
+
+body {
+    color: var(--text-color-primary);
+}
+
+:root {
+    --theme-blue-color: #3157ff;
+    --theme-blue-shadow-color: #1f4aeb;
+    --text-color-primary: #2c2c2c;
+
 }

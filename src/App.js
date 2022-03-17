@@ -5,7 +5,7 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import SearchUserRepos from './components/SearchUserRepos';
+import UserRepos from './components/UserRepos';
 import RepoPage from './components/RepoPage';
 import AppLayout from './components/AppLayout';
 
@@ -14,7 +14,7 @@ function App() {
         <Router>
             <AppLayout>
                 <Routes>
-                    <Route path="/users/:username/repos" element={<SearchUserRepos />} />
+                    <Route path="/users/:username/repos" element={<UserRepos />} />
                     <Route path="/users/:username/repos/:repo" element={<RepoPage />} />
                 </Routes>
             </AppLayout>

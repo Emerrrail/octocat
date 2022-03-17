@@ -11,9 +11,9 @@ export function* fetchARepo(action) {
     const { payload } = action;
     try {
         // const { data } = yield call(getApi, ...[payload.owner, payload.repo]);
-        yield put(fetchReposSuccess(dataTemp));
+        yield put(fetchARepoSuccess(dataTemp));
     } catch (error) {
-        yield put(fetchReposError(error));
+        yield put(fetchARepoError(error));
     }
 }
 
@@ -22,9 +22,9 @@ const getApi = async (owner, repo) => {
     return response;
 }
 
-export const fetchReposSuccess = (data) => {
+export const fetchARepoSuccess = (data) => {
 
-    console.log('fetch a repo success');
+    console.log(data, 'fetch a repo success');
 
     return {
         type: GET_A_REPO_SUCCESS,
@@ -34,9 +34,9 @@ export const fetchReposSuccess = (data) => {
     }
 }
 
-export const fetchReposError = (error) => {
+export const fetchARepoError = (error) => {
 
-    console.log('fetch a repo error');
+    console.log('fetch a repo error', error);
 
     return {
         type: GET_A_REPO_ERROR,

@@ -29,12 +29,31 @@ export const getReposError = (payload) => {
 
 export const LOAD_MORE_REPOS_REQUEST = "LOAD_MORE_REPOS_REQUEST";
 
-export const loadMoreReposRequest = (username) => {
+export const loadMoreReposRequest = (username, page) => {
     return {
         type: LOAD_MORE_REPOS_REQUEST,
         payload: {
-            username: username
+            username: username,
+            page: page
         }
+    }
+}
+
+export const LOAD_MORE_REPOS_SUCCESS = "LOAD_MORE_REPOS_SUCCESS";
+
+export const loadMoreReposSuccess = (payload) => {
+    return {
+        type: LOAD_MORE_REPOS_SUCCESS,
+        payload
+    }
+}
+
+export const LOAD_MORE_REPOS_ERROR = "LOAD_MORE_REPOS_ERROR";
+
+export const loadMoreReposError = (payload) => {
+    return {
+        type: LOAD_MORE_REPOS_ERROR,
+        payload
     }
 }
 
