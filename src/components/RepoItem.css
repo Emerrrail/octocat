@@ -17,6 +17,19 @@
 
 .repoItem__repoTitle {
     margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    white-space: nowrap;
+}
+
+.repoItem__description {
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
 .repoItem__bottom {

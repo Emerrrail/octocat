@@ -1,6 +1,6 @@
 import { LOAD_MORE_REPOS_REQUEST, LOAD_MORE_REPOS_SUCCESS, LOAD_MORE_REPOS_ERROR } from "../../actions";
 import github from "../../../apis/github";
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest, select } from "redux-saga/effects";
 
 export function* watcherLoadMoreReposSaga() {
     yield takeLatest(LOAD_MORE_REPOS_REQUEST, loadMoreRepos);
@@ -8,8 +8,13 @@ export function* watcherLoadMoreReposSaga() {
 
 export function* loadMoreRepos(action) {
     const { payload } = action;
+    const state = yield select();
     try {
-        const { data } = yield call(getApi, ...[payload.username, payload.page]);
+        if (!state.getRepos.hasMore) {
+            yield put(loadMoreReposError('No more data, '));
+            return;
+        }
+        const { data } = yield call(getApi, ...[payload.username, state.getRepos.page]);
         yield put(loadMoreReposSuccess(data));
     } catch (error) {
         yield put(loadMoreReposError(error));
@@ -28,19 +33,29 @@ const getApi = async (username, page) => {
 
 export const loadMoreReposSuccess = (data) => {
 
-    console.log('load more repos success');
+    console.log(data, 'load more repos success');
 
+    if (data.length < 10) {
+        return {
+            type: LOAD_MORE_REPOS_SUCCESS,
+            payload: {
+                repoList: data,
+                hasMore: false
+            }
+        }
+    }
     return {
         type: LOAD_MORE_REPOS_SUCCESS,
         payload: {
-            repoList: data
+            repoList: data,
+            hasMore: true
         }
     }
 }
 
 export const loadMoreReposError = (error) => {
 
-    console.log('load more repos error');
+    console.log(error, 'load more repos error');
 
     return {
         type: LOAD_MORE_REPOS_ERROR,

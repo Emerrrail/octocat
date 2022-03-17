@@ -3,8 +3,10 @@ import { LOAD_MORE_REPOS_REQUEST, LOAD_MORE_REPOS_SUCCESS, LOAD_MORE_REPOS_ERROR
 
 const initialState = {
     loading: false,
+    loadMore: false,
     repoList: [],
-    page: 1,
+    page: 2,
+    hasMore: false,
     error: null
 }
 
@@ -18,12 +20,11 @@ export const getRepos = (state = initialState, action) => {
                 error: null
             }
         case GET_REPOS_SUCCESS:
-            const { page } = state
             return {
                 ...state,
                 loading: false,
                 repoList: action.payload.repoList,
-                page: page + 1,
+                hasMore: action.payload.hasMore,
                 error: null
             }
         case GET_REPOS_ERROR:
@@ -36,21 +37,22 @@ export const getRepos = (state = initialState, action) => {
         case LOAD_MORE_REPOS_REQUEST:
             return {
                 ...state,
-                loading: true,
+                loadMore: true,
             }
         case LOAD_MORE_REPOS_SUCCESS:
             const newList = action.payload.repoList;
             const { repoList } = state;
             return {
                 ...state,
-                loading: false,
+                loadMore: false,
                 repoList: [...repoList, ...newList],
-                page: page + 1
+                page: state.page + 1,
+                hasMore: action.payload.hasMore
             }
         case LOAD_MORE_REPOS_ERROR:
             return {
                 ...state,
-                loading: false,
+                loadMore: false,
                 error: action.payload.error
             }
         default:

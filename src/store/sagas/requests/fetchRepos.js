@@ -28,12 +28,23 @@ const getApi = async (username) => {
 
 export const fetchReposSuccess = (data) => {
 
-    console.log('fetch repos success');
+    console.log(data, 'fetch repos success');
+
+    if (data.length < 10) {
+        return {
+            type: GET_REPOS_SUCCESS,
+            payload: {
+                repoList: data,
+                hasMore: false
+            }
+        }
+    }
 
     return {
         type: GET_REPOS_SUCCESS,
         payload: {
-            repoList: data
+            repoList: data,
+            hasMore: true
         }
     }
 }
