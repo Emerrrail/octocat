@@ -1,13 +1,13 @@
-.userRepos__repoList {
+.userFollowers__followerList {
     margin-left: 35vh;
     margin-top: 60px;
     padding: 2vh 12vh 2vh;
 }
 
-.userRepos__repoList_title {
+.userFollowers__followerList_title {
     margin-bottom: 24px;
 }
 
-.userRepos__repoList_count {
+.userFollowers__followerList_count {
     margin-bottom: 36px;
 }

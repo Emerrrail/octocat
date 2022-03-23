@@ -14,9 +14,9 @@ function RepoItem({ username, repoTitle, description, stargazers, forks }) {
 		<Link to={`/users/${username}/repos/${repoTitle}`} >
 			<div className='repoItem'>
 				<div className='repoItem__top'>
-					<h4 className='repoItem__repoTitle'>
+					<h5 className='repoItem__repoTitle'>
 						{repoTitle}
-					</h4>
+					</h5>
 					<p className='repoItem__description'>
 						{description}
 					</p>

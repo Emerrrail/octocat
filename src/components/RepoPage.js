@@ -7,6 +7,7 @@ import { getARepoRequest } from '../store/actions/index';
 import Star from './icon/Star';
 import Fork from './icon/Fork';
 import Watch from './icon/Watch';
+import { onClickUrl } from './helper-function/onClickUrl';
 
 function RepoPage({ repoDetail }) {
 
@@ -18,9 +19,8 @@ function RepoPage({ repoDetail }) {
 
 		dispatch(getARepoRequest(username, repo));
 
-	}, [dispatch, username])
+	}, [dispatch, username, repo])
 
-	//再做外開網頁
 
 	return (
 		<div className='repoPage'>
@@ -44,9 +44,12 @@ function RepoPage({ repoDetail }) {
 					</div>
 				</div>
 			</div>
-			<a href={repoDetail.svn_url}>
-				<button className='repoPage__btn'>Visit on Github</button>
-			</a>
+			<button
+				className='repoPage__btn'
+				onClick={onClickUrl(repoDetail.svn_url)}
+			>
+				Visit on Github
+			</button>
 		</div>
 	)
 }

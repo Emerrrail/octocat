@@ -15,8 +15,11 @@ body {
 }
 
 :root {
-    --theme-blue-color: #3157ff;
-    --theme-blue-shadow-color: #1f4aeb;
+    --theme-blue-color: #86A3C3;
+    --theme-blue-shadow-color: #7268A6;
+    --border-color: #f4f4f4;
+    --hover-color: #B6CEC7;
     --text-color-primary: #2c2c2c;
+    --text-color-secondary: #c1c1c1;
 
 }

@@ -12,6 +12,7 @@
 .searchbar__input {
     width: 100%;
     font-size: large;
+    color: var(--text-color-secondary);
     border: none;
 }
 

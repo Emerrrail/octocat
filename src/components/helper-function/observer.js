@@ -1,4 +1,4 @@
-function observer(bottomReachedCallback, observed) {
+const observer = (bottomReachedCallback, observed) => {
 
     const options = {
         root: null,

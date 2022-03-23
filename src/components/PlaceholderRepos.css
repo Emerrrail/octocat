@@ -1,13 +1,18 @@
-.placeholder {
+.placeholderRepos {
     margin-top: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
+    background-color: white;
 }
 
 .placeholder__item {
     padding: 8%;
-    height: 15vh;
-    border: 2px solid #f4f4f4;
+    height: 23vh;
+    border: 2px solid var(--border-color);
     border-radius: 16px;
+}
+
+.placeholder__title {
+    width: 100%;
 }

@@ -6,6 +6,12 @@
     box-shadow: 4px 16px 20px -5px rgba(178, 178, 178, 0.45);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.ownerInfo__info {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -14,4 +20,77 @@
     margin: 24px;
     position: relative;
     border-radius: 50%;
+    border: 6px solid var(--theme-blue-color);
+}
+
+.ownerInfo__username {
+    color: var(--text-color-secondary);
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+.ownerInfo__bio {
+    margin: 0 12px;
+    height: 8vh;
+    text-align: center;
+overflow: scroll;
+}
+
+.ownerInfo__info_detail {
+    margin-top: 30px;
+}
+
+
+
+.ownerInfo__location, .ownerInfo__mail, .ownerInfo__link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ownerInfo__repositories, .ownerInfo__followers, .ownerInfo__following {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+    transition: all .2s ease-out;
+    
+}
+
+.ownerInfo__repositories:hover, .ownerInfo__followers:hover, .ownerInfo__following:hover {
+    color: var(--hover-color);
+    transition: all .2s ease-out;
+}
+
+.ownerInfo__link {
+    overflow-wrap: anywhere;
+    white-space: normal;
+    transition: all .2s ease-out;
+}
+
+.ownerInfo__link:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.ownerInfo__icon {
+    margin-right: 20px;
+}
+
+.ownerInfo__menu {
+    margin-bottom: 7vh;
+    margin-right: 10vh;
+}
+
+.ownerInfo__info_detail, .ownerInfo__menu {
+    margin-left: 36px;
+}
+
+.selected {
+    color: var(--theme-blue-color);
+}
+
+.menu__icon {
+    color: var(--theme-blue-color);
 }

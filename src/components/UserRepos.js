@@ -1,18 +1,18 @@
 import './UserRepos.css';
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { connect } from 'react-redux';
-import { getReposRequest } from '../store/actions/index';
-import { loadMoreReposRequest } from '../store/actions/index'
+import { useDispatch, connect } from 'react-redux';
+import { getReposRequest, loadMoreReposRequest } from '../store/actions/index';
 import RepoList from './RepoList';
 import OwnerInfo from './OwnerInfo';
-import Placeholder from './Placeholder';
+import PlaceholderRepos from './PlaceholderRepos';
 import observer from './helper-function/observer';
 
 
 
-function UserRepos({ loading, loadMore, repoList }) {
+function UserRepos({ loading, loadMore, repoList, ownerData }) {
+
+    const reposCount = ownerData.public_repos;
 
     const { username } = useParams();
 
@@ -21,15 +21,20 @@ function UserRepos({ loading, loadMore, repoList }) {
     const observed = useRef();
 
     const bottomReachedCallback = useCallback((entries) => {
+
         if (entries[0].isIntersecting) {
             dispatch(loadMoreReposRequest(username))
         }
+
     }, [dispatch, username])
 
+
     useEffect(() => {
+
         if (observed.current) {
             observer(bottomReachedCallback, observed.current);
         }
+
     }, [bottomReachedCallback])
 
 
@@ -41,22 +46,23 @@ function UserRepos({ loading, loadMore, repoList }) {
 
     }, [dispatch, username])
 
-    
+
 
     return (
         <div className='userRepos'>
-
-            <div className='userRepos__ownerInfo'>
-                <OwnerInfo />
-            </div>
+            <OwnerInfo />
             <div className='userRepos__repoList'>
-                <h3 className='userRepos__repoListTitle'>
+                <h4 className='userRepos__repoList_title'>
                     Repositories
-                </h3>
-                {loading && <Placeholder />}
+                </h4>
+                <p className='userRepos__repoList_count'>
+                    {reposCount} Repositories has created so far
+                </p>
+                {loading && <PlaceholderRepos />}
                 <RepoList repoList={repoList} username={username} />
-                {loadMore && <Placeholder />}
+                {loadMore && <PlaceholderRepos />}
                 <div ref={observed}></div>
+                {/* <PlaceholderRepos /> */}
             </div>
         </div>
     )
@@ -67,7 +73,9 @@ function mapStateToProps(state) {
         state: state,
         loading: state.getRepos.loading,
         loadMore: state.getRepos.loadMore,
-        repoList: state.getRepos.repoList
+        repoList: state.getRepos.repoList,
+        error: state.getRepos.error,
+        ownerData: state.getOwnerData.ownerData
     }
 }
 

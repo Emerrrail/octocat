@@ -10,8 +10,8 @@ export function* watcherGetARepoSaga() {
 export function* fetchARepo(action) {
     const { payload } = action;
     try {
-        // const { data } = yield call(getApi, ...[payload.owner, payload.repo]);
-        yield put(fetchARepoSuccess(dataTemp));
+        const { data } = yield call(getApi, ...[payload.owner, payload.repo]);
+        yield put(fetchARepoSuccess(data));
     } catch (error) {
         yield put(fetchARepoError(error));
     }
