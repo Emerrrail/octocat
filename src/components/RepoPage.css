@@ -76,3 +76,7 @@
     display: flex;
     margin-right: 12px;
 }
+
+.repoPage__language_name {
+    margin-right: 6px;
+}

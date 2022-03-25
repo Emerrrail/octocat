@@ -11,9 +11,7 @@ import observer from './helper-function/observer';
 import { thousand } from './helper-function/numberConverter';
 
 
-function UserFollowers({ loading, followers, loadMore, ownerData, error }) {
-
-    const { username } = useParams();
+function UserFollowers({ username, loading, followers, loadMore, ownerData, error }) {
 
     const dispatch = useDispatch();
 
@@ -48,22 +46,18 @@ function UserFollowers({ loading, followers, loadMore, ownerData, error }) {
 
     return (
         <div className='userFollowers'>
-            {!error && <div>
-                <OwnerInfo />
-                <div className='userFollowers__followerList'>
-                    <h4 className='userFollowers__followerList_title'>
-                        Followers
-                    </h4>
-                    <p className='userFollowers__followerList_count'>
-                        {followersCount} People has followed so far
-                    </p>
-                    {loading && <PlaceholderFollowers />}
-                    <FollowerList followers={followers} />
-                    {loadMore && <PlaceholderFollowers />}
-                    <div ref={observed}></div>
-                </div>
-            </div>}
-            {error && <Error message={"OOPS! USER NOT FOUND"} />}
+            <div className='userFollowers__followerList'>
+                <h4 className='userFollowers__followerList_title'>
+                    Followers
+                </h4>
+                <p className='userFollowers__followerList_count'>
+                    {followersCount} People has followed so far
+                </p>
+                {loading && <PlaceholderFollowers />}
+                <FollowerList followers={followers} />
+                {loadMore && <PlaceholderFollowers />}
+                <div ref={observed}></div>
+            </div>
         </div>
     )
 }

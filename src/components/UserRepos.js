@@ -1,23 +1,16 @@
 import './UserRepos.css';
 import React, { useEffect, useRef, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
-import { getReposRequest, loadMoreReposRequest } from '../store/actions/index';
+import { loadMoreReposRequest } from '../store/actions/index';
 import RepoList from './RepoList';
-import OwnerInfo from './OwnerInfo';
 import PlaceholderRepos from './PlaceholderRepos';
-import Error from './Error';
 import observer from './helper-function/observer';
 
 
 
-function UserRepos({ loading, loadMore, repoList, ownerData, error }) {
-
-    console.log(error)
+function UserRepos({ username, loading, loadMore, repoList, ownerData, error }) {
 
     const reposCount = ownerData.public_repos;
-
-    const { username } = useParams();
 
     const dispatch = useDispatch();
 
@@ -42,18 +35,11 @@ function UserRepos({ loading, loadMore, repoList, ownerData, error }) {
 
 
 
-    useEffect(() => {
-
-        dispatch(getReposRequest(username));
-
-    }, [dispatch, username])
-
 
 
     return (
         <div className='userRepos'>
-            {!error && <div>
-                <OwnerInfo />
+            <div>
                 <div className='userRepos__repoList'>
                     <h4 className='userRepos__repoList_title'>
                         Repositories
@@ -67,8 +53,7 @@ function UserRepos({ loading, loadMore, repoList, ownerData, error }) {
                     {loadMore && <PlaceholderRepos />}
                     <div ref={observed}></div>
                 </div>
-            </div>}
-            {error && <Error message={"OOPS! USER NOT FOUND"} />}
+            </div>
         </div>
     )
 }
