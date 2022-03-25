@@ -1,0 +1,12 @@
+.notfoundpage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notfoundpage__text {
+    color: var(--theme-blue-color);
+    font-weight: 500;
+    font-size: 24px;
+}

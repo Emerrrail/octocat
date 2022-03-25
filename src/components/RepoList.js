@@ -7,6 +7,7 @@ function RepoList({ repoList, username }) {
 
     const renderRepoItems = repoList.map((item, index) => {
         return <RepoItem
+            className="col"
             key={index}
             username={username}
             repoTitle={item.name}
@@ -17,8 +18,8 @@ function RepoList({ repoList, username }) {
     })
 
     return (
-        <div>
-            <div className='repoList'>
+        <div className='container'>
+            <div className='repoList row row-cols-2'>
                 {renderRepoItems}
             </div>
         </div>

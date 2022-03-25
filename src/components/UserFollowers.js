@@ -6,12 +6,12 @@ import { getFollowersRequest, loadMoreFollowersRequest } from '../store/actions/
 import OwnerInfo from './OwnerInfo';
 import FollowerList from './FollowerList';
 import PlaceholderFollowers from './PlaceholderFollowers';
+import Error from './Error';
 import observer from './helper-function/observer';
+import { thousand } from './helper-function/numberConverter';
 
 
-function UserFollowers({ loading, followers, loadMore, ownerData }) {
-
-    console.log(ownerData)
+function UserFollowers({ loading, followers, loadMore, ownerData, error }) {
 
     const { username } = useParams();
 
@@ -19,7 +19,7 @@ function UserFollowers({ loading, followers, loadMore, ownerData }) {
 
     const observed = useRef();
 
-    const followersCount = ownerData.followers;
+    const followersCount = thousand(ownerData.followers);
 
     const bottomReachedCallback = useCallback((entries) => {
 
@@ -48,19 +48,22 @@ function UserFollowers({ loading, followers, loadMore, ownerData }) {
 
     return (
         <div className='userFollowers'>
-            {<OwnerInfo />}
-            <div className='userFollowers__followerList'>
-                <h4 className='userFollowers__followerList_title'>
-                    Followers
-                </h4>
-                <p className='userFollowers__followerList_count'>
-                    {followersCount} People has followed so far
-                </p>
-                {loading && <PlaceholderFollowers />}
-                <FollowerList followers={followers} />
-                {loadMore && <PlaceholderFollowers />}
-                <div ref={observed}></div>
-            </div>
+            {!error && <div>
+                <OwnerInfo />
+                <div className='userFollowers__followerList'>
+                    <h4 className='userFollowers__followerList_title'>
+                        Followers
+                    </h4>
+                    <p className='userFollowers__followerList_count'>
+                        {followersCount} People has followed so far
+                    </p>
+                    {loading && <PlaceholderFollowers />}
+                    <FollowerList followers={followers} />
+                    {loadMore && <PlaceholderFollowers />}
+                    <div ref={observed}></div>
+                </div>
+            </div>}
+            {error && <Error message={"OOPS! USER NOT FOUND"} />}
         </div>
     )
 }
@@ -70,7 +73,8 @@ function mapStateToProps(state) {
         loading: state.getFollowers.loading,
         followers: state.getFollowers.followers,
         loadMore: state.getFollowers.loadMore,
-        ownerData: state.getOwnerData.ownerData
+        ownerData: state.getOwnerData.ownerData,
+        error: state.getFollowers.error
     }
 }
 

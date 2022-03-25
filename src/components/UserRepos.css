@@ -10,4 +10,6 @@
 
 .userRepos__repoList_count {
     margin-bottom: 36px;
+    font-weight: 500;
+    color: var(--theme-blue-shadow-color);
 }

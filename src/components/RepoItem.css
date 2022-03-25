@@ -1,5 +1,5 @@
 .repoItem {
-    padding: 8%;
+    padding: 32px;
     height: 23vh;
     border: 2px solid var(--border-color);
     border-radius: 16px;
@@ -16,21 +16,23 @@
     transition: all .2s ease-out;
 }
 
-.repoItem__repoTitle {
+.repoItem__repo_title {
     margin-bottom: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     white-space: nowrap;
 }
 
 .repoItem__description {
     overflow: hidden;
+    text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    
+    white-space: normal;
 }
 
 .repoItem__bottom {
@@ -44,8 +46,11 @@
     align-items: center;
 }
 
-
-
 .repoItem__icon {
-    margin-right: 4px;
+    margin-right: 6px;
+}
+
+.repoList > a:hover {
+    color: var(--text-color-primary);
+    cursor: unset;
 }

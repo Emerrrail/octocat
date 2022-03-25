@@ -1,4 +1,4 @@
-import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR } from "../../actions";
+import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR, NO_MORE_DATA } from "../../actions";
 import github from "../../../apis/github";
 import { call, put, takeLatest, select } from "redux-saga/effects";
 
@@ -11,7 +11,7 @@ export function* loadMoreFollowers(action) {
     const state = yield select();
     try {
         if (!state.getFollowers.hasMore) {
-            yield put(loadMoreFollowersError('No more data, '));
+            yield put(noMoreData('No more data'));
             return;
         }
         const { data } = yield call(getApi, ...[payload.username, state.getFollowers.page]);
@@ -62,5 +62,14 @@ export const loadMoreFollowersError = (error) => {
         payload: {
             error: error
         }
+    }
+}
+
+export const noMoreData = (message) => {
+
+    console.log(message)
+
+    return {
+        type: NO_MORE_DATA
     }
 }

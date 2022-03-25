@@ -10,8 +10,8 @@ export function* watcherGetARepoSaga() {
 export function* fetchARepo(action) {
     const { payload } = action;
     try {
-        const { data } = yield call(getApi, ...[payload.owner, payload.repo]);
-        yield put(fetchARepoSuccess(data));
+        // const { data } = yield call(getApi, ...[payload.owner, payload.repo]);
+        yield put(fetchARepoSuccess(dataTemp));
     } catch (error) {
         yield put(fetchARepoError(error));
     }
@@ -113,7 +113,7 @@ const dataTemp = {
     "releases_url": "https://api.github.com/repos/octocat/hello-worId/releases{/id}",
     "deployments_url": "https://api.github.com/repos/octocat/hello-worId/deployments",
     "created_at": "2014-06-18T21:26:19Z",
-    "updated_at": "2022-03-15T03:48:12Z",
+    "updated_at": "2022-12-15T03:48:12Z",
     "pushed_at": "2022-02-13T04:15:31Z",
     "git_url": "git://github.com/octocat/hello-worId.git",
     "ssh_url": "git@github.com:octocat/hello-worId.git",
@@ -121,7 +121,7 @@ const dataTemp = {
     "svn_url": "https://github.com/octocat/hello-worId",
     "homepage": null,
     "size": 160,
-    "stargazers_count": 99,
+    "stargazers_count": 111091,
     "watchers_count": 99,
     "language": null,
     "has_issues": true,

@@ -6,11 +6,14 @@ import { getReposRequest, loadMoreReposRequest } from '../store/actions/index';
 import RepoList from './RepoList';
 import OwnerInfo from './OwnerInfo';
 import PlaceholderRepos from './PlaceholderRepos';
+import Error from './Error';
 import observer from './helper-function/observer';
 
 
 
-function UserRepos({ loading, loadMore, repoList, ownerData }) {
+function UserRepos({ loading, loadMore, repoList, ownerData, error }) {
+
+    console.log(error)
 
     const reposCount = ownerData.public_repos;
 
@@ -39,7 +42,6 @@ function UserRepos({ loading, loadMore, repoList, ownerData }) {
 
 
 
-
     useEffect(() => {
 
         dispatch(getReposRequest(username));
@@ -50,20 +52,23 @@ function UserRepos({ loading, loadMore, repoList, ownerData }) {
 
     return (
         <div className='userRepos'>
-            <OwnerInfo />
-            <div className='userRepos__repoList'>
-                <h4 className='userRepos__repoList_title'>
-                    Repositories
-                </h4>
-                <p className='userRepos__repoList_count'>
-                    {reposCount} Repositories has created so far
-                </p>
-                {loading && <PlaceholderRepos />}
-                <RepoList repoList={repoList} username={username} />
-                {loadMore && <PlaceholderRepos />}
-                <div ref={observed}></div>
-                {/* <PlaceholderRepos /> */}
-            </div>
+            {!error && <div>
+                <OwnerInfo />
+                <div className='userRepos__repoList'>
+                    <h4 className='userRepos__repoList_title'>
+                        Repositories
+                    </h4>
+                    <p className='userRepos__repoList_count'>
+                        {reposCount} Repositories has created so far
+                    </p>
+                    {/* <PlaceholderRepos /> */}
+                    {loading && <PlaceholderRepos />}
+                    <RepoList repoList={repoList} username={username} />
+                    {loadMore && <PlaceholderRepos />}
+                    <div ref={observed}></div>
+                </div>
+            </div>}
+            {error && <Error message={"OOPS! USER NOT FOUND"} />}
         </div>
     )
 }
@@ -74,8 +79,8 @@ function mapStateToProps(state) {
         loading: state.getRepos.loading,
         loadMore: state.getRepos.loadMore,
         repoList: state.getRepos.repoList,
-        error: state.getRepos.error,
-        ownerData: state.getOwnerData.ownerData
+        ownerData: state.getOwnerData.ownerData,
+        error: state.getRepos.error
     }
 }
 

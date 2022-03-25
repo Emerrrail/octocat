@@ -1,26 +1,26 @@
-import { GET_OWNER_DATA_REQUEST, GET_OWNER_DATA_SUCCESS, GET_OWNER_DATA_ERROR } from "../actions";
+import { GET_LANGUAGE_DATA_REQUEST, GET_LANGUAGE_DATA_SUCCESS, GET_LANGUAGE_DATA_ERROR } from "../actions";
 
 const initialState = {
     loading: false,
-    ownerData: {},
+    language: {},
     error: null
 }
 
-export const getOwnerData = (state = initialState, action) => {
+export const getLanguage = (state = initialState, action) => {
     switch (action.type) {
-        case GET_OWNER_DATA_REQUEST:
+        case GET_LANGUAGE_DATA_REQUEST:
             return {
                 ...state,
                 loading: true
             }
-        case GET_OWNER_DATA_SUCCESS:
+        case GET_LANGUAGE_DATA_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                ownerData: action.payload.ownerData,
+                language: action.payload.language,
                 error: null
             }
-        case GET_OWNER_DATA_ERROR:
+        case GET_LANGUAGE_DATA_ERROR:
             return {
                 ...state,
                 loading: false,

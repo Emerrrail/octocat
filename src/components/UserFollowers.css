@@ -10,4 +10,6 @@
 
 .userFollowers__followerList_count {
     margin-bottom: 36px;
+    color: var(--theme-blue-shadow-color);
+    font-weight: 500;
 }

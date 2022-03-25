@@ -23,7 +23,7 @@ function App() {
                     <Route path="/users/:username/following" element={<UserFollowing />} />
                     <Route path="/users/:username/repos/:repo" element={<RepoPage />} />
                     <Route path="/" element={<Home />} />
-                    <Route path="/404" element={<NotFoundPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </AppLayout>
         </Router>

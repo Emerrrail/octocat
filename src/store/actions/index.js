@@ -117,6 +117,14 @@ export const loadMoreFollowersError = (payload) => {
     }
 }
 
+export const NO_MORE_DATA = 'NO_MORE_DATA';
+
+export const noMoreData = () => {
+    return {
+        type: NO_MORE_DATA
+    }
+}
+
 
 export const GET_OWNER_DATA_REQUEST = 'GET_OWNER_DATA_REQUEST';
 
@@ -178,3 +186,18 @@ export const getARepoError = (payload) => {
         payload
     }
 }
+
+export const GET_LANGUAGE_DATA_REQUEST = "GET_LANGUAGE_DATA_REQUEST";
+
+export const getLanguageDataRequest = (owner, repo) => {
+    return {
+        type: GET_LANGUAGE_DATA_REQUEST,
+        payload: {
+            owner: owner,
+            repo: repo
+        }
+    }
+}
+
+export const GET_LANGUAGE_DATA_SUCCESS = "GET_LANGUAGE_DATA_SUCCESS";
+export const GET_LANGUAGE_DATA_ERROR = "GET_LANGUAGE_DATA_ERROR";

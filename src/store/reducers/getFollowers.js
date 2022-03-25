@@ -1,5 +1,5 @@
 import { GET_FOLLOWERS_REQUEST, GET_FOLLOWERS_SUCCESS, GET_FOLLOWERS_ERROR } from "../actions";
-import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR } from "../actions";
+import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR, NO_MORE_DATA } from "../actions";
 
 const initialState = {
     loading: false,
@@ -54,6 +54,11 @@ export const getFollowers = (state = initialState, action) => {
                 ...state,
                 loadMore: false,
                 error: action.payload.error
+            }
+        case NO_MORE_DATA:
+            return {
+                ...state,
+                loadMore: false
             }
         default:
             return state;

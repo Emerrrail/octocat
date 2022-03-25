@@ -16,7 +16,8 @@
 }
 
 .ownerInfo__avatar {
-    width: 55%;
+    width: 150px;
+    height: 150px;
     margin: 24px;
     position: relative;
     border-radius: 50%;
@@ -93,4 +94,12 @@ overflow: scroll;
 
 .menu__icon {
     color: var(--theme-blue-color);
+}
+
+.placeholder_center_1 {
+    margin-left: 50%;
+    margin-bottom: 24px;
+}
+.placeholder_center_2 {
+    margin-left: 65%;
 }
