@@ -1,0 +1,82 @@
+.repoPage {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.repoPage__content {
+    width: 90%;
+    height: 35vh;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.repoPage__full_name {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.repoPage__icon_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+
+.repoPage__count {
+    width: 56px;
+    color: var(--theme-blue-shadow-color);
+    font-weight: 700;
+    text-align: center;
+}
+
+.repoPage__date {
+    margin-top: 36px;
+}
+
+.repoPage__date_container {
+    display: flex;
+}
+
+.repoPage__date_title {
+    width: 100px;
+}
+
+.repoPage__btn {
+    padding: 0 24px;
+    height: 40px;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--theme-blue-color);
+    background-color: white;
+    border: 1px solid var(--theme-blue-color);
+    border-radius: 20px;
+    transition: all .2s ease-in;
+}
+
+.repoPage__btn:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--theme-blue-color);
+    transition: all .2s ease-in;
+}
+
+
+.repoPage__language_title {
+    margin-top: 40px;
+}
+
+.repoPage__language_container {
+    display: flex;
+}
+
+.repoPage__language {
+    display: flex;
+    margin-right: 12px;
+}
+
+.repoPage__language_name {
+    margin-right: 6px;
+}

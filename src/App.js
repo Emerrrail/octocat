@@ -5,10 +5,10 @@ import {
     Route
 } from "react-router-dom";
 import Home from './components/Home';
-import RepoPage from './components/RepoPage';
-import UserPage from './components/UserPage';
-import AppLayout from './components/AppLayout';
-import NotFoundPage from './components/NotFoundPage';
+import RepoPage from './Pages/RepoPage/RepoPage';
+import UserPage from './Pages/UserPage/UserPage';
+import AppLayout from './Layouts/AppLayout/AppLayout'
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 function App() {
 
