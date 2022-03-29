@@ -1,9 +1,7 @@
-import './PlaceholderFollowers.css';
+import './PlaceholderFollowers.css'
 import React from 'react'
 
-function PlaceholderFollowers() {
-
-
+function PlaceholderFollowers () {
     return (
         <div className='placeholderFollowers'>
             <div className='placeholderFollowers__item'>

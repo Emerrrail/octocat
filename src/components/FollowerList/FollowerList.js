@@ -1,9 +1,8 @@
-import './FollowerList.css';
+import './FollowerList.css'
 import React from 'react'
-import FollowerItem from '../FollowerItem/FollowerItem';
+import FollowerItem from '../FollowerItem/FollowerItem'
 
-function FollowerList({ followers }) {
-
+function FollowerList ({ followers }) {
     const renderFollowerItems = followers.map((follower, index) => {
         return <FollowerItem
             key={index}

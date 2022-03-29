@@ -1,13 +1,15 @@
-import './RepoList.css';
-import React from 'react';
-import RepoItem from '../RepoItem/RepoItem';
+import './RepoList.css'
+import React, { useState } from 'react'
+import RepoItem from '../RepoItem/RepoItem'
 
+function RepoList ({ repoList, username }) {
+    const [matches, setMatches] = useState(window.matchMedia('(max-width: 880px)').matches)
 
-function RepoList({ repoList, username }) {
+    window.matchMedia('(max-width: 880px)').addEventListener('change', event => setMatches(event.matches))
 
     const renderRepoItems = repoList.map((item, index) => {
         return <RepoItem
-            className="col"
+            className='col'
             key={index}
             username={username}
             repoTitle={item.name}
@@ -18,13 +20,12 @@ function RepoList({ repoList, username }) {
     })
 
     return (
-        <div className='container'>
-            <div className='repoList row row-cols-2'>
+        <div className='container-sm'>
+            <div className={`repoList row ${matches ? 'row-cols-1' : 'row-cols-2'}`}>
                 {renderRepoItems}
             </div>
         </div>
     )
 }
 
-
-export default RepoList;
+export default RepoList

@@ -1,8 +1,7 @@
-import './PlaceholderRepos.css';
+import './PlaceholderRepos.css'
 import React from 'react'
 
-function PlaceholderRepos() {
-
+function PlaceholderRepos () {
     return (
         <div className='placeholderRepos container'>
             <div className='placeholderRepos__sub_container'>
@@ -75,4 +74,4 @@ function PlaceholderRepos() {
     )
 }
 
-export default PlaceholderRepos;
+export default PlaceholderRepos

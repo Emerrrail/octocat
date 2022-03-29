@@ -1,13 +1,13 @@
-import { all } from 'redux-saga/effects';
-import { watcherGetReposSaga } from './requests/fetchRepos';
-import { watcherLoadMoreReposSaga } from './requests/loadMoreRepos';
-import { watcherGetARepoSaga } from './requests/fetchARepo';
-import { watcherGetFollowersSaga } from './requests/fetchFollowers';
-import { watcherLoadMoreFollowersSaga } from './requests/loadMoreFollowers';
-import { watcherGetOwnerDataSaga } from './requests/fetchOwnerData';
-import { watcherGetLanguageSaga } from './requests/fetchLanguage';
+import { all } from 'redux-saga/effects'
+import { watcherGetReposSaga } from './requests/fetchRepos'
+import { watcherLoadMoreReposSaga } from './requests/loadMoreRepos'
+import { watcherGetARepoSaga } from './requests/fetchARepo'
+import { watcherGetFollowersSaga } from './requests/fetchFollowers'
+import { watcherLoadMoreFollowersSaga } from './requests/loadMoreFollowers'
+import { watcherGetOwnerDataSaga } from './requests/fetchOwnerData'
+import { watcherGetLanguageSaga } from './requests/fetchLanguage'
 
-export default function* rootSaga() {
+export default function * rootSaga () {
     yield all([
         watcherGetReposSaga(),
         watcherLoadMoreReposSaga(),
@@ -16,5 +16,5 @@ export default function* rootSaga() {
         watcherLoadMoreFollowersSaga(),
         watcherGetOwnerDataSaga(),
         watcherGetLanguageSaga()
-    ]);
+    ])
 }

@@ -1,41 +1,29 @@
-import './UserRepos.css';
-import React, { useEffect, useRef, useCallback } from 'react';
-import { useDispatch, connect } from 'react-redux';
-import { loadMoreReposRequest } from '../../Services/store/actions/index';
-import RepoList from '../RepoList/RepoList';
-import PlaceholderRepos from '../PlaceholderRepos/PlaceholderRepos';
-import observer from '../../helper-function/observer';
+import './UserRepos.css'
+import React, { useEffect, useRef, useCallback } from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { loadMoreReposRequest } from '../../Services/store/actions/index'
+import RepoList from '../RepoList/RepoList'
+import PlaceholderRepos from '../PlaceholderRepos/PlaceholderRepos'
+import observer from '../../helper-function/observer'
 
+function UserRepos ({ username, loading, loadMore, repoList, ownerData }) {
+    const reposCount = ownerData.public_repos
 
+    const dispatch = useDispatch()
 
-function UserRepos({ username, loading, loadMore, repoList, ownerData, error }) {
-
-    const reposCount = ownerData.public_repos;
-
-    const dispatch = useDispatch();
-
-    const observed = useRef();
+    const observed = useRef()
 
     const bottomReachedCallback = useCallback((entries) => {
-
         if (entries[0].isIntersecting) {
             dispatch(loadMoreReposRequest(username))
         }
-
     }, [dispatch, username])
 
-
     useEffect(() => {
-
         if (observed.current) {
-            observer(bottomReachedCallback, observed.current);
+            observer(bottomReachedCallback, observed.current)
         }
-
     }, [bottomReachedCallback])
-
-
-
-
 
     return (
         <div className='userRepos'>
@@ -47,7 +35,6 @@ function UserRepos({ username, loading, loadMore, repoList, ownerData, error }) 
                     <p className='userRepos__repoList_count'>
                         {reposCount} Repositories has created so far
                     </p>
-                    {/* <PlaceholderRepos /> */}
                     {loading && <PlaceholderRepos />}
                     <RepoList repoList={repoList} username={username} />
                     {loadMore && <PlaceholderRepos />}
@@ -58,7 +45,7 @@ function UserRepos({ username, loading, loadMore, repoList, ownerData, error }) 
     )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         state: state,
         loading: state.getRepos.loading,
@@ -69,4 +56,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(UserRepos);
+export default connect(mapStateToProps)(UserRepos)

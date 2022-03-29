@@ -1,4 +1,4 @@
-export const GET_REPOS_REQUEST = "GET_REPOS_REQUEST";
+export const GET_REPOS_REQUEST = 'GET_REPOS_REQUEST'
 
 export const getReposRequest = (username) => {
     return {
@@ -9,7 +9,7 @@ export const getReposRequest = (username) => {
     }
 }
 
-export const GET_REPOS_SUCCESS = "GET_REPOS_SUCCESS";
+export const GET_REPOS_SUCCESS = 'GET_REPOS_SUCCESS'
 
 export const getReposSuccess = (payload) => {
     return {
@@ -18,7 +18,7 @@ export const getReposSuccess = (payload) => {
     }
 }
 
-export const GET_REPOS_ERROR = "GET_REPOS_ERROR";
+export const GET_REPOS_ERROR = 'GET_REPOS_ERROR'
 
 export const getReposError = (payload) => {
     return {
@@ -27,12 +27,9 @@ export const getReposError = (payload) => {
     }
 }
 
-
-
-export const LOAD_MORE_REPOS_REQUEST = "LOAD_MORE_REPOS_REQUEST";
+export const LOAD_MORE_REPOS_REQUEST = 'LOAD_MORE_REPOS_REQUEST'
 
 export const loadMoreReposRequest = (username) => {
-
     return {
         type: LOAD_MORE_REPOS_REQUEST,
         payload: {
@@ -41,7 +38,7 @@ export const loadMoreReposRequest = (username) => {
     }
 }
 
-export const LOAD_MORE_REPOS_SUCCESS = "LOAD_MORE_REPOS_SUCCESS";
+export const LOAD_MORE_REPOS_SUCCESS = 'LOAD_MORE_REPOS_SUCCESS'
 
 export const loadMoreReposSuccess = (payload) => {
     return {
@@ -50,7 +47,7 @@ export const loadMoreReposSuccess = (payload) => {
     }
 }
 
-export const LOAD_MORE_REPOS_ERROR = "LOAD_MORE_REPOS_ERROR";
+export const LOAD_MORE_REPOS_ERROR = 'LOAD_MORE_REPOS_ERROR'
 
 export const loadMoreReposError = (payload) => {
     return {
@@ -59,7 +56,7 @@ export const loadMoreReposError = (payload) => {
     }
 }
 
-export const GET_FOLLOWERS_REQUEST = 'GET_FOLLOWERS_REQUEST';
+export const GET_FOLLOWERS_REQUEST = 'GET_FOLLOWERS_REQUEST'
 
 export const getFollowersRequest = (username) => {
     return {
@@ -70,7 +67,7 @@ export const getFollowersRequest = (username) => {
     }
 }
 
-export const GET_FOLLOWERS_SUCCESS = 'GET_FOLLOWERS_SUCCESS';
+export const GET_FOLLOWERS_SUCCESS = 'GET_FOLLOWERS_SUCCESS'
 
 export const getFollowersSuccess = (payload) => {
     return {
@@ -79,7 +76,7 @@ export const getFollowersSuccess = (payload) => {
     }
 }
 
-export const GET_FOLLOWERS_ERROR = 'GET_FOLLOWERS_ERROR';
+export const GET_FOLLOWERS_ERROR = 'GET_FOLLOWERS_ERROR'
 
 export const getFollowersError = (payload) => {
     return {
@@ -88,7 +85,7 @@ export const getFollowersError = (payload) => {
     }
 }
 
-export const LOAD_MORE_FOLLOWERS_REQUEST = 'LOAD_MORE_FOLLOWERS_REQUEST';
+export const LOAD_MORE_FOLLOWERS_REQUEST = 'LOAD_MORE_FOLLOWERS_REQUEST'
 
 export const loadMoreFollowersRequest = (username) => {
     return {
@@ -99,7 +96,7 @@ export const loadMoreFollowersRequest = (username) => {
     }
 }
 
-export const LOAD_MORE_FOLLOWERS_SUCCESS = 'LOAD_MORE_FOLLOWERS_SUCCESS';
+export const LOAD_MORE_FOLLOWERS_SUCCESS = 'LOAD_MORE_FOLLOWERS_SUCCESS'
 
 export const loadMoreFollowersSuccess = (payload) => {
     return {
@@ -108,7 +105,7 @@ export const loadMoreFollowersSuccess = (payload) => {
     }
 }
 
-export const LOAD_MORE_FOLLOWERS_ERROR = 'LOAD_MORE_FOLLOWERS_ERROR';
+export const LOAD_MORE_FOLLOWERS_ERROR = 'LOAD_MORE_FOLLOWERS_ERROR'
 
 export const loadMoreFollowersError = (payload) => {
     return {
@@ -117,7 +114,7 @@ export const loadMoreFollowersError = (payload) => {
     }
 }
 
-export const NO_MORE_DATA = 'NO_MORE_DATA';
+export const NO_MORE_DATA = 'NO_MORE_DATA'
 
 export const noMoreData = () => {
     return {
@@ -125,8 +122,7 @@ export const noMoreData = () => {
     }
 }
 
-
-export const GET_OWNER_DATA_REQUEST = 'GET_OWNER_DATA_REQUEST';
+export const GET_OWNER_DATA_REQUEST = 'GET_OWNER_DATA_REQUEST'
 
 export const getOwnerDataRequest = (owner) => {
     return {
@@ -137,7 +133,7 @@ export const getOwnerDataRequest = (owner) => {
     }
 }
 
-export const GET_OWNER_DATA_SUCCESS = 'GET_OWNER_DATA_SUCCESS';
+export const GET_OWNER_DATA_SUCCESS = 'GET_OWNER_DATA_SUCCESS'
 
 export const getOwnerDataSuccess = (payload) => {
     return {
@@ -146,7 +142,7 @@ export const getOwnerDataSuccess = (payload) => {
     }
 }
 
-export const GET_OWNER_DATA_ERROR = 'GET_OWNER_DATA_ERROR';
+export const GET_OWNER_DATA_ERROR = 'GET_OWNER_DATA_ERROR'
 
 export const getOwnerDataError = (payload) => {
     return {
@@ -155,9 +151,7 @@ export const getOwnerDataError = (payload) => {
     }
 }
 
-
-
-export const GET_A_REPO_REQUEST = "GET_A_REPO_REQUEST";
+export const GET_A_REPO_REQUEST = 'GET_A_REPO_REQUEST'
 
 export const getARepoRequest = (owner, repo) => {
     return {
@@ -169,7 +163,7 @@ export const getARepoRequest = (owner, repo) => {
     }
 }
 
-export const GET_A_REPO_SUCCESS = "GET_A_REPO_SUCCESS";
+export const GET_A_REPO_SUCCESS = 'GET_A_REPO_SUCCESS'
 
 export const getARepoSuccess = (payload) => {
     return {
@@ -178,7 +172,7 @@ export const getARepoSuccess = (payload) => {
     }
 }
 
-export const GET_A_REPO_ERROR = "GET_A_REPO_ERROR";
+export const GET_A_REPO_ERROR = 'GET_A_REPO_ERROR'
 
 export const getARepoError = (payload) => {
     return {
@@ -187,7 +181,7 @@ export const getARepoError = (payload) => {
     }
 }
 
-export const GET_LANGUAGE_DATA_REQUEST = "GET_LANGUAGE_DATA_REQUEST";
+export const GET_LANGUAGE_DATA_REQUEST = 'GET_LANGUAGE_DATA_REQUEST'
 
 export const getLanguageDataRequest = (owner, repo) => {
     return {
@@ -199,5 +193,13 @@ export const getLanguageDataRequest = (owner, repo) => {
     }
 }
 
-export const GET_LANGUAGE_DATA_SUCCESS = "GET_LANGUAGE_DATA_SUCCESS";
-export const GET_LANGUAGE_DATA_ERROR = "GET_LANGUAGE_DATA_ERROR";
+export const GET_LANGUAGE_DATA_SUCCESS = 'GET_LANGUAGE_DATA_SUCCESS'
+export const GET_LANGUAGE_DATA_ERROR = 'GET_LANGUAGE_DATA_ERROR'
+
+export const TOGGLE_OWNERINFO = 'TOGGLE_OWNERINFO'
+
+export const toggleOwnerInfo = () => {
+    return {
+        type: TOGGLE_OWNERINFO
+    }
+}

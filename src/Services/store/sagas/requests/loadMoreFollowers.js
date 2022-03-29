@@ -1,23 +1,23 @@
-import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR, NO_MORE_DATA } from "../../actions";
-import github from "../../../apis/github";
-import { call, put, takeLatest, select } from "redux-saga/effects";
+import { LOAD_MORE_FOLLOWERS_REQUEST, LOAD_MORE_FOLLOWERS_SUCCESS, LOAD_MORE_FOLLOWERS_ERROR, NO_MORE_DATA } from '../../actions'
+import github from '../../../apis/github'
+import { call, put, takeLatest, select } from 'redux-saga/effects'
 
-export function* watcherLoadMoreFollowersSaga() {
-    yield takeLatest(LOAD_MORE_FOLLOWERS_REQUEST, loadMoreFollowers);
+export function * watcherLoadMoreFollowersSaga () {
+    yield takeLatest(LOAD_MORE_FOLLOWERS_REQUEST, loadMoreFollowers)
 }
 
-export function* loadMoreFollowers(action) {
-    const { payload } = action;
-    const state = yield select();
+export function * loadMoreFollowers (action) {
+    const { payload } = action
+    const state = yield select()
     try {
         if (!state.getFollowers.hasMore) {
-            yield put(noMoreData('No more data'));
-            return;
+            yield put(noMoreData('No more data'))
+            return
         }
-        const { data } = yield call(getApi, ...[payload.username, state.getFollowers.page]);
-        yield put(loadMoreFollowersSuccess(data));
+        const { data } = yield call(getApi, ...[payload.username, state.getFollowers.page])
+        yield put(loadMoreFollowersSuccess(data))
     } catch (error) {
-        yield put(loadMoreFollowersError(error));
+        yield put(loadMoreFollowersError(error))
     }
 }
 
@@ -28,12 +28,11 @@ const getApi = async (username, page) => {
             page: page
         }
     })
-    return response;
+    return response
 }
 
 export const loadMoreFollowersSuccess = (data) => {
-
-    console.log(data, 'load more followers success');
+    console.log(data, 'load more followers success')
 
     if (data.length < 10) {
         return {
@@ -54,8 +53,7 @@ export const loadMoreFollowersSuccess = (data) => {
 }
 
 export const loadMoreFollowersError = (error) => {
-
-    console.log(error, 'load more followers error');
+    console.log(error, 'load more followers error')
 
     return {
         type: LOAD_MORE_FOLLOWERS_ERROR,
@@ -66,7 +64,6 @@ export const loadMoreFollowersError = (error) => {
 }
 
 export const noMoreData = (message) => {
-
     console.log(message)
 
     return {

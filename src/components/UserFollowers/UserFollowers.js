@@ -1,45 +1,34 @@
-import './UserFollowers.css';
-import React, { useEffect, useRef, useCallback } from 'react';
-import { useDispatch, connect } from 'react-redux';
-import { getFollowersRequest, loadMoreFollowersRequest } from '../../Services/store/actions/index';
-import FollowerList from '../FollowerList/FollowerList';
-import PlaceholderFollowers from '../PlaceholderFollowers/PlaceholderFollowers';
-import observer from '../../helper-function/observer';
-import { thousand } from '../../helper-function/numberConverter';
+import './UserFollowers.css'
+import React, { useEffect, useRef, useCallback } from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { getFollowersRequest, loadMoreFollowersRequest } from '../../Services/store/actions/index'
+import FollowerList from '../FollowerList/FollowerList'
+import PlaceholderFollowers from '../PlaceholderFollowers/PlaceholderFollowers'
+import observer from '../../helper-function/observer'
+import { thousand } from '../../helper-function/numberConverter'
 
+function UserFollowers ({ username, loading, followers, loadMore, ownerData, error }) {
+    const dispatch = useDispatch()
 
-function UserFollowers({ username, loading, followers, loadMore, ownerData, error }) {
+    const observed = useRef()
 
-    const dispatch = useDispatch();
-
-    const observed = useRef();
-
-    const followersCount = thousand(ownerData.followers);
+    const followersCount = thousand(ownerData.followers)
 
     const bottomReachedCallback = useCallback((entries) => {
-
         if (entries[0].isIntersecting) {
             dispatch(loadMoreFollowersRequest(username))
         }
-
     }, [dispatch, username])
 
-
     useEffect(() => {
-
         if (observed.current) {
-            observer(bottomReachedCallback, observed.current);
+            observer(bottomReachedCallback, observed.current)
         }
-
     }, [bottomReachedCallback])
 
-
     useEffect(() => {
-
         dispatch(getFollowersRequest(username))
-
     }, [dispatch, username])
-
 
     return (
         <div className='userFollowers'>
@@ -59,7 +48,7 @@ function UserFollowers({ username, loading, followers, loadMore, ownerData, erro
     )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         loading: state.getFollowers.loading,
         followers: state.getFollowers.followers,
@@ -69,4 +58,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(UserFollowers);
+export default connect(mapStateToProps)(UserFollowers)

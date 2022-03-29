@@ -1,13 +1,23 @@
 .ownerInfo {
-    width: 35vh;
+    width: 300px;
     height: 100%;
     position: fixed;
     top: 60px;
+    left: -300px;
     box-shadow: 4px 16px 20px -5px rgba(178, 178, 178, 0.45);
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all .3s ease-out;
+    z-index: 1000;
 }
+
+    .open {
+        -webkit-transform: translateX(300px);
+        transform: translateX(300px);
+        transition: all .3s ease-out;
+    }
 
 .ownerInfo__info {
     display: flex;
@@ -41,12 +51,14 @@ overflow: scroll;
     margin-top: 30px;
 }
 
-
-
 .ownerInfo__location, .ownerInfo__mail, .ownerInfo__link {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+}
+
+.ownerInfo__btn {
+    text-align: center;
 }
 
 .ownerInfo__repositories, .ownerInfo__followers, .ownerInfo__following {
@@ -64,6 +76,7 @@ overflow: scroll;
 }
 
 .ownerInfo__link {
+    margin-right: 16px;
     overflow-wrap: anywhere;
     white-space: normal;
     transition: all .2s ease-out;
@@ -76,12 +89,13 @@ overflow: scroll;
 }
 
 .ownerInfo__icon {
+    width: 20px;
+    height: 20px;
     margin-right: 20px;
 }
 
 .ownerInfo__menu {
     margin-bottom: 7vh;
-    margin-right: 10vh;
 }
 
 .ownerInfo__info_detail, .ownerInfo__menu {
@@ -92,14 +106,16 @@ overflow: scroll;
     color: var(--theme-blue-color);
 }
 
-.menu__icon {
-    color: var(--theme-blue-color);
-}
-
 .placeholder_center_1 {
     margin-left: 50%;
     margin-bottom: 24px;
 }
 .placeholder_center_2 {
     margin-left: 65%;
+}
+
+@media (max-width: 880px) {
+    .ownerInfo {
+        width: 250px;
+    }
 }

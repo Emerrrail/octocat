@@ -1,8 +1,8 @@
-import './FollowerItem.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import './FollowerItem.css'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function FollowerItem({ username, avatar }) {
+function FollowerItem ({ username, avatar }) {
     return (
         <Link to={`/users/${username}/repos`}>
             <div className='followerItem'>

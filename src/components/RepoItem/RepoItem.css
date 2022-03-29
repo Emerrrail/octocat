@@ -23,7 +23,7 @@
     -webkit-line-clamp: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .repoItem__description {

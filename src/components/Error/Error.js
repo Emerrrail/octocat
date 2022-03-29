@@ -1,7 +1,7 @@
-import './Error.css';
+import './Error.css'
 import React from 'react'
 
-function Error({ message }) {
+function Error ({ message }) {
     return (
         <div className='error'>
             <p className='error__text'>

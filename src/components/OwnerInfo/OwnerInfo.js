@@ -1,35 +1,37 @@
-import './OwnerInfo.css';
-import React, { useEffect } from 'react';
-import { useDispatch, connect } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
-import Followers from '../icon/Followers';
-import Location from '../icon/Location';
-import Mail from '../icon/Mail';
-import LinkIcon from '../icon/LinkIcon';
-import Repositories from '../icon/Repositories';
-import { onClickUrl } from '../../helper-function/onClickUrl';
-import { getOwnerDataRequest } from '../../Services/store/actions/index';
+import './OwnerInfo.css'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { useParams, Link } from 'react-router-dom'
+import Followers from '../icon/Followers'
+import Location from '../icon/Location'
+import Mail from '../icon/Mail'
+import Button from '../Button/Button'
+import LinkIcon from '../icon/LinkIcon'
+import Repositories from '../icon/Repositories'
+import { onClickUrl } from '../../helper-function/onClickUrl'
+import { getOwnerDataRequest } from '../../Services/store/actions/index'
 
-function OwnerInfo({ ownerData, loading }) {
+function OwnerInfo ({ ownerData, loading, open }) {
+    const [matches, setMatches] = useState(window.matchMedia('(max-width: 576px)').matches)
 
-    const dispatch = useDispatch();
+    window.matchMedia('(max-width: 576px)').addEventListener('change', (event) => setMatches(event.matches))
 
-    const { username } = useParams();
+    console.log('open, matches', open, matches)
 
-    const reposSelected = window.location.pathname === `/users/${username}/repos`;
+    const dispatch = useDispatch()
 
-    const followersSelected = window.location.pathname === `/users/${username}/followers`;
+    const { username } = useParams()
 
-    const followingSelected = window.location.pathname === `/users/${username}/following`;
+    const reposSelected = window.location.pathname === `/users/${username}/repos`
+
+    const followersSelected = window.location.pathname === `/users/${username}/followers`
 
     useEffect(() => {
-
-        dispatch(getOwnerDataRequest(username));
-
+        dispatch(getOwnerDataRequest(username))
     }, [dispatch, username])
 
     return (
-        <div className='ownerInfo'>
+        <div className={`ownerInfo${open ? ' open' : ''}${matches ? '' : ' open'}`}>
             <div className='ownerInfo__container'>
                 <div className='ownerInfo__info'>
                     <img className='ownerInfo__avatar' src={ownerData.avatar_url} alt={ownerData.name} />
@@ -67,7 +69,9 @@ function OwnerInfo({ ownerData, loading }) {
                             <LinkIcon />
                             {ownerData.blog}
                         </div>}
-
+                </div>
+                <div className='ownerInfo__btn'>
+                    <Button text='Visit Github' url={ownerData.html_url} />
                 </div>
             </div>
             <div className='ownerInfo__menu'>
@@ -83,23 +87,18 @@ function OwnerInfo({ ownerData, loading }) {
                         Followers
                     </div>
                 </Link>
-                <Link to={`/users/${username}/following`}>
-                    <div className={`ownerInfo__following${followingSelected ? ' selected' : ''}`}>
-                        <Followers />
-                        Following
-                    </div>
-                </Link>
             </div>
         </div>
     )
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         ownerData: state.getOwnerData.ownerData,
-        loading: state.getOwnerData.loading
+        loading: state.getOwnerData.loading,
+        open: state.toggleOwnerInfo.open
     }
 }
 
-export default connect(mapStateToProps)(OwnerInfo);
+export default connect(mapStateToProps)(OwnerInfo)
 // export default OwnerInfo;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Watch() {
+function Watch () {
     return (
         <div className="repoPage__icon">
             <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="octicon octicon-eye mr-2">

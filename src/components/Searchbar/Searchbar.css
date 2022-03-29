@@ -1,6 +1,6 @@
 .searchbar {
     width: 90%;
-    margin-left: 5vh;
+    /* margin-left: 5vh; */
     display: flex;
     align-items: center;
     background-color: white;
