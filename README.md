@@ -11,8 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Searching for users
 - Displaying user's profile
-- Repo list of user
-- Follower list of user
+- Repo list of a user
+- Follower list of a user
 - Repo page of single repo
 
 ## 4 Used Technologies
@@ -46,3 +46,7 @@ $ npm install
 ```
 $ npm start
 ```
+
+## 6 Component Structure
+
+![Component Structure](./src/Assets/Structure.png)
