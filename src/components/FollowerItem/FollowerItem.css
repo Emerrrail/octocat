@@ -1,0 +1,21 @@
+.followerItem {
+    display: flex;
+    align-items: center;
+    padding: 4%;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    transition: all .2s ease-out;
+}
+
+.followerItem:hover {
+    color: var(--text-color-primary);
+    box-shadow: 0px 0px 20px -5px rgba(178, 178, 178, 0.45);
+    transition: all .2s ease-out;
+}
+
+.followerItem__avatar {
+    width: 70px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+

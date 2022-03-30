@@ -1,0 +1,33 @@
+.userFollowers__followerList {
+    margin-left: 300px;
+    margin-top: 60px;
+    padding: 2vh 12vh 2vh;
+}
+
+.userFollowers__followerList_title {
+    margin-bottom: 24px;
+}
+
+.userFollowers__followerList_count {
+    margin-bottom: 36px;
+    color: var(--theme-blue-shadow-color);
+    font-weight: 500;
+}
+
+@media (max-width: 1100px) {
+    .userFollowers__followerList {
+        padding: 2vh 2vh 2vh;
+    }
+}
+
+@media (max-width: 880px) {
+    .userFollowers__followerList {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .userFollowers__followerList {
+        margin-left: 0;
+    }
+}

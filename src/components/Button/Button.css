@@ -1,0 +1,19 @@
+.button {
+    margin-top: 6px;
+    padding: 0 24px;
+    height: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--theme-blue-color);
+    background-color: white;
+    border: 1px solid var(--theme-blue-color);
+    border-radius: 20px;
+    transition: all .2s ease-in;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--theme-blue-color);
+    transition: all .2s ease-in;
+}

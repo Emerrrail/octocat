@@ -1,0 +1,34 @@
+.userRepos__repoList {
+    margin-left: 300px;
+    margin-right: 0;
+    margin-top: 60px;
+    padding: 2vh 12vh 2vh;
+}
+
+.userRepos__repoList_title {
+    margin-bottom: 24px;
+}
+
+.userRepos__repoList_count {
+    margin-bottom: 36px;
+    font-weight: 500;
+    color: var(--theme-blue-shadow-color);
+}
+
+@media (max-width: 1100px) {
+    .userRepos__repoList {
+        padding: 2vh 2vh 2vh;
+    }
+}
+
+@media (max-width: 880px) {
+    .userRepos__repoList {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .userRepos__repoList {
+        margin-left: 0;
+    }
+}

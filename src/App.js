@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate
+} from 'react-router-dom'
+import RepoPage from './Pages/RepoPage/RepoPage'
+import UserPage from './Pages/UserPage/UserPage'
+import AppLayout from './Layouts/AppLayout/AppLayout'
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+    return (
+        <Router>
+            <AppLayout>
+                <Routes>
+                    <Route path="/users/:username/:page" element={<UserPage />} />
+                    <Route path="/users/:username/repos/:repo" element={<RepoPage />} />
+                    <Route path="/" element={<Navigate to={'/users/octocat/repos'} />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </AppLayout>
+        </Router>
+    )
 }
 
-export default App;
+export default App

@@ -1,0 +1,25 @@
+.placeholderFollowers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.placeholderFollowers__item {
+    display: flex;
+    align-items: center;
+    padding: 4%;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.placeholderFollowers__avatar {
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+}
+
+.placeholderFollowers__title {
+    width: 70%;
+}

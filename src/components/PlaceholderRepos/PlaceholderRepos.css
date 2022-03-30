@@ -1,0 +1,22 @@
+.placeholderRepos {
+    margin: 25px 0;
+    background-color: white;
+}
+
+.placeholderRepos__sub_container {
+    row-gap: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.placeholder__item {
+    padding: 32px;
+    margin: 0 12px;
+    height: 23vh;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+}
+
+.placeholder__title {
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+.searchbar {
+    width: 90%;
+    /* margin-left: 5vh; */
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.searchbar__icon {
+    margin-right: 6px;
+}
+
+.searchbar__input {
+    width: 100%;
+    font-size: large;
+    color: var(--text-color-primary);
+    border: none;
+}
+
+.searchbar__input:focus {
+    outline: none;
+}
