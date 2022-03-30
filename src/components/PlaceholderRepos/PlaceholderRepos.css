@@ -20,3 +20,7 @@
 .placeholder__title {
     width: 100%;
 }
+
+.container {
+    padding: 0;
+}

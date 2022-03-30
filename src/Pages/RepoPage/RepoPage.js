@@ -53,17 +53,17 @@ function RepoPage ({ repoDetail, language, errorRepo }) {
                             <div className='repoPage__language_container'>{renderLanguages}</div>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <div className='repoPage__icon_container'>
+                    <div className='repoPage__bottom'>
+                        <div className='repoPage__meta'>
+                            <div className='repoPage__meta_container'>
                                 <Star />
                                 <span className='repoPage__count'>{stargazersCount}</span>stars
                             </div>
-                            <div className='repoPage__icon_container'>
+                            <div className='repoPage__meta_container'>
                                 <Fork />
                                 <span className='repoPage__count'>{forksCount}</span>forks
                             </div>
-                            <div className='repoPage__icon_container'>
+                            <div className='repoPage__meta_container'>
                                 <Watch />
                                 <span className='repoPage__count'>{watchersCount}</span>watching
                             </div>
