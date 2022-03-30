@@ -22,7 +22,7 @@
     margin-bottom: 12px;
 }
 
-.repoPage__icon_container {
+.repoPage__meta_container {
     display: flex;
     align-items: center;
     margin-bottom: 6px;
@@ -42,6 +42,7 @@
 
 .repoPage__date_container {
     display: flex;
+    margin-bottom: 6px;
 }
 
 .repoPage__date_title {
@@ -54,6 +55,7 @@
 
 .repoPage__language_container {
     display: flex;
+    height: 60px;
 }
 
 .repoPage__language {
@@ -63,4 +65,42 @@
 
 .repoPage__language_name {
     margin-right: 6px;
+}
+
+@media (max-width: 576px) {
+    .repoPage__content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .repoPage__bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .repoPage__date {
+        margin: 0;
+    }
+
+    .repoPage__meta {
+        margin-right: 24px;
+    }
+}
+
+@media (max-width: 387px) {
+    .repoPage__bottom {
+        flex-direction: column;
+    }
+
+    .repoPage__meta {
+        margin: 24px 0;
+    }
+
+    .repoPage__date_container {
+        margin-left: 24px;
+    }
+
+    .repoPage__meta_container {
+        margin-left: 24px;
+    }
 }
