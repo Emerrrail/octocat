@@ -6,6 +6,7 @@ import UserRepos from '../../components/UserRepos/UserRepos'
 import UserFollowers from '../../components/UserFollowers/UserFollowers'
 import Error from '../../components/Error/Error'
 import { getReposRequest } from '../../Services/store/actions/index'
+import { scrollToTop } from '../../helper-function/scrollToTop'
 
 function UserPage ({ errorRepos, errorFollowers }) {
     const { username, page } = useParams()
@@ -14,9 +15,9 @@ function UserPage ({ errorRepos, errorFollowers }) {
 
     useEffect(() => {
         dispatch(getReposRequest(username))
+        scrollToTop()
     }, [dispatch, username])
-    // 在搜尋失敗後，成為error的狀態，因為UserRepos沒有生成，也不會再打API，所以就停在error畫面了。
-    // 可以在UserPage dispatch action
+
     return (
         <div>
             {!errorRepos && !errorFollowers &&

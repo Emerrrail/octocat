@@ -8,15 +8,13 @@ import Mail from '../icon/Mail'
 import Button from '../Button/Button'
 import LinkIcon from '../icon/LinkIcon'
 import Repositories from '../icon/Repositories'
-import { onClickUrl } from '../../helper-function/onClickUrl'
+import { onUrlClick } from '../../helper-function/onUrlClick'
 import { getOwnerDataRequest } from '../../Services/store/actions/index'
 
-function OwnerInfo ({ ownerData, loading, open }) {
+function OwnerInfo ({ ownerData, loading, open, onSwitchButtonClick }) {
     const [matches, setMatches] = useState(window.matchMedia('(max-width: 576px)').matches)
 
     window.matchMedia('(max-width: 576px)').addEventListener('change', (event) => setMatches(event.matches))
-
-    console.log('open, matches', open, matches)
 
     const dispatch = useDispatch()
 
@@ -65,7 +63,7 @@ function OwnerInfo ({ ownerData, loading, open }) {
                             {ownerData.email}
                         </div>}
                     {ownerData.blog &&
-                        <div className='ownerInfo__link' onClick={onClickUrl(ownerData.blog)}>
+                        <div className='ownerInfo__link' onClick={onUrlClick(ownerData.blog)}>
                             <LinkIcon />
                             {ownerData.blog}
                         </div>}
@@ -76,13 +74,19 @@ function OwnerInfo ({ ownerData, loading, open }) {
             </div>
             <div className='ownerInfo__menu'>
                 <Link to={`/users/${username}/repos`}>
-                    <div className={`ownerInfo__repositories${reposSelected ? ' selected' : ''}`}>
+                    <div
+                        className={`ownerInfo__repositories${reposSelected ? ' selected' : ''}`}
+                        onClick={onSwitchButtonClick}
+                    >
                         <Repositories />
                         Repositories
                     </div>
                 </Link>
                 <Link to={`/users/${username}/followers`}>
-                    <div className={`ownerInfo__followers${followersSelected ? ' selected' : ''}`}>
+                    <div
+                        className={`ownerInfo__followers${followersSelected ? ' selected' : ''}`}
+                        onClick={onSwitchButtonClick}
+                    >
                         <Followers />
                         Followers
                     </div>
