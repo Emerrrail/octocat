@@ -23,3 +23,9 @@
 .placeholderFollowers__title {
     width: 70%;
 }
+
+@media (max-width: 880px) {
+    .placeholderFollowers {
+        grid-template-columns: 1fr;
+    }
+}

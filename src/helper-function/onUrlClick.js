@@ -3,6 +3,6 @@ const openInNewTab = (url) => {
     if (newWindow) newWindow.opener = null
 }
 
-export const onClickUrl = (url) => {
+export const onUrlClick = (url) => {
     return () => openInNewTab(url)
 }

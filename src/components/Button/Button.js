@@ -1,12 +1,12 @@
 import './Button.css'
 import React from 'react'
-import { onClickUrl } from '../../helper-function/onClickUrl'
+import { onUrlClick } from '../../helper-function/onUrlClick'
 
 function Button ({ text, url }) {
     return (
         <button
             className='button'
-            onClick={onClickUrl(url)}
+            onClick={onUrlClick(url)}
         >{text}
         </button>
     )

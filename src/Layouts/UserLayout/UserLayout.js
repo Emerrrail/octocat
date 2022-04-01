@@ -12,7 +12,7 @@ function UserLayout ({ children }) {
 
     const dispatch = useDispatch()
 
-    const onTogglerClick = () => {
+    const onSwitchButtonClick = () => {
         dispatch(toggleOwnerInfo())
     }
 
@@ -20,11 +20,11 @@ function UserLayout ({ children }) {
         <div>
             <div
                 className={`userLayout__toggler_container${matches ? '' : ' hidden'}`}
-                onClick={onTogglerClick}
+                onClick={onSwitchButtonClick}
             >
                 <Toggler />
             </div>
-            <OwnerInfo />
+            <OwnerInfo onSwitchButtonClick={onSwitchButtonClick} />
             {children}
         </div>
     )
